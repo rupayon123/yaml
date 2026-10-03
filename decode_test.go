@@ -611,6 +611,18 @@ var unmarshalTests = []struct {
 		"a: [https://github.com/go-yaml/yaml]",
 		map[string]interface{}{"a": []interface{}{"https://github.com/go-yaml/yaml"}},
 	},
+	{
+		"a: {b: c?c}",
+		map[string]interface{}{"a": map[string]interface{}{"b": "c?c"}},
+	},
+	{
+		"a: {b: c?}",
+		map[string]interface{}{"a": map[string]interface{}{"b": "c?"}},
+	},
+	{
+		"a: {? b: c}",
+		map[string]interface{}{"a": map[string]interface{}{"b": "c"}},
+	},
 
 	// Duration
 	{
